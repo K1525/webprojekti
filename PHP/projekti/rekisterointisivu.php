@@ -7,6 +7,7 @@
 <?php
 session_start();
 require_once('db-init.php');
+require_once("password_compat-master/lib/password.php");
 ?>
         <form id="registrationform" method="post" action="rekisterointisivu.php">
             
@@ -71,11 +72,28 @@ require_once('db-init.php');
 <?php
 //include('kayttajatiedot.php');
 if (isset($_POST['username']) && !empty($_POST['username'])) addUserToDB($db); // TESTATAAN ONKO FORM SUBMITATTU
-
 function addUserToDB($db){
     
    $username = (isset($_POST['username']) && !empty($_POST['username'])) ? $_POST['username'] : null;
    $password = (isset($_POST['passwd']) && !empty($_POST['passwd'])) ? $_POST['passwd'] : null;
+    
+        //Salasanan suolaus
+            //Luodaan random string
+            function generateRandomString($length = 60) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+                return $randomString;
+            }    
+            $random = generateRandomString();
+            //Yhdistetään suola ja salsana
+            $finalPassword = $random.$password;
+            //Suola + salasana hash
+            $hash = password_hash($finalPassword, PASSWORD_BCRYPT);
+    
    $firstname = (isset($_POST['first_name']) && !empty($_POST['first_name'])) ? $_POST['first_name'] : null;
    $lastname = (isset($_POST['last_name']) && !empty($_POST['last_name'])) ? $_POST['last_name'] : null; 
    $email = (isset($_POST['email']) && !empty($_POST['email'])) ? $_POST['email'] : null;
@@ -83,14 +101,15 @@ function addUserToDB($db){
    $zip = (isset($_POST['zip']) && !empty($_POST['zip'])) ? $_POST['zip'] : null;
    $city = (isset($_POST['city']) && !empty($_POST['city'])) ? $_POST['city'] : null;
    $country = (isset($_POST['country']) && !empty($_POST['country'])) ? $_POST['country'] : null;
-   $stmt = $db->prepare("INSERT INTO customer (Username, Password, First_name, Last_name, Email)
+   $stmt = $db->prepare("INSERT INTO customer (Username, Password, First_name, Last_name, Email, Password_salt)
    
-   VALUES (:username, :password, :firstname, :lastname, :email)");
+   VALUES (:username, :password, :firstname, :lastname, :email, :salt)");
    $stmt->bindParam(':username', $username);
-   $stmt->bindParam(':password', $password);
+   $stmt->bindParam(':password', $hash);
    $stmt->bindParam(':firstname', $firstname);
    $stmt->bindParam(':lastname', $lastname);
    $stmt->bindParam(':email', $email);
+   $stmt->bindParam(':salt', $random);
    $stmt->execute();
    $id = $db->lastInsertId();
    $stmt2 = $db->prepare("INSERT INTO address (CustomerId, Address_street, Address_zip, Address_city, Address_country)
@@ -112,5 +131,4 @@ function addUserToDB($db){
     
     
 } 
-
 ?>
