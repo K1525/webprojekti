@@ -1,0 +1,335 @@
+html{
+    
+}
+
+/*YLEISIÃ„*/
+.sharp{
+    border-radius: 0px!important;
+}
+
+.pad-top{
+    margin-top: 15px; 
+}
+
+.clickable{
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 1;
+}
+
+.clickable:hover{
+    color: gray;
+}
+li {
+  list-style-type: none;
+}
+h4 {
+    color: white;
+    text-align: center;
+}
+/*BODY*/
+body{
+   /* background: url(../kuvat/logo_BB_2.0.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+   */ font-family: 'Prompt', sans-serif;
+}
+
+/*HEADER*/
+#header{
+    margin-top: 50px;
+    height: 150px;
+    background-image:url(../kuvat/header.jpg);
+    padding: 40px;
+    color: #ffffff;
+}
+
+#logo {
+    height: 150px;
+    width: 150px;
+}
+.headerh1 {
+    text-align: center;
+    color: #ededed;
+}
+
+/*NAVIGAATIO*/
+.navbar-default {
+    height: 100px;
+}
+
+.glyphicon-shopping-cart{
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.filtterit{
+    position: relative;
+    height: 100%;
+    max-width: 20%;
+    float: left;
+    margin: 20px;
+}
+
+.tiedot{
+    display: inline-block;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    width: 200px;
+    min-height: 300px;
+    border-radius: 5px;
+    float: right;
+    margin: 5px;
+
+    
+}
+
+.tiedot:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.left {
+    height: 100%;
+}
+.tuotetaulu {
+    max-width: 75%;
+    min-width: 75%;
+    float: right;
+}
+
+
+
+
+.img-responsive {
+    max-width: auto;
+    max-height: 200px;
+}
+
+
+/*FOOTER*/
+#footer{
+    background-color: #2a2a2a;
+    height: 150px;
+    text-align: center;
+    color:white;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 7% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    height: auto;
+}
+
+/* The Close Button */
+/*
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+*/
+#tuotekuvat {
+    width: 29%;
+    float: left;
+    min-height: 200px;
+    
+}
+
+#alternativetuotekuva {
+
+}
+.pikkunen {
+    max-height: 50px;
+    max-width: 50px;
+}
+#modaltiedot {
+    float: right;
+    min-width: 69%;
+    max-width: 69%;
+    min-height: 400px;
+   
+}
+#myModal{
+    z-index: 10;
+    position: fixed;
+}
+.isoproduct{
+
+}
+.tuotekuvapop {
+    width: 300px;
+    height: 350px;
+    margin: 0 40% 0 40%;
+    text-align: center;
+    
+    
+}
+.nimipop {
+    font-size: 1em;
+    margin: 0 30% 0 30%;
+    text-align: center;
+    
+}
+.hintapop{
+    font-size: 2em;
+    margin: 0 30% 0 30%;
+    text-align: center;
+    
+}
+.kuvauspop{
+    margin: 0 30% 0 30%;
+    text-align: center;
+    
+}
+.nimi{
+    text-align: center;
+}
+.hinta{
+    text-align: center;
+}
+.kuvaus{
+    text-align: center;
+}
+.myBtnn{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+#kommenttikentta {
+    min-height: 150px;
+}
+/* slideshow */
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      height: 400px;
+      margin: auto;
+      margin: -20px;
+  }
+.carousel-indicators {
+    
+}
+#myCarousel{
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+.kuvaa{
+    min-height: 200px;
+    height: 200px;
+    width: 150px;
+    text-align: center;
+    position:relative;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin: 0 auto;
+}
+.tuotekuva {
+    display: block;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    height: 100%;
+    max-width: 100%;
+}
+.product {
+    border: 0px solid black;
+    height: 300px;
+    width: 250px;
+    margin: 2px;
+    text-align: center;
+-webkit-box-shadow: 14px 13px 16px -9px rgba(153,153,153,0.82);
+-moz-box-shadow: 14px 13px 16px -9px rgba(153,153,153,0.82);
+box-shadow: 14px 13px 16px -9px rgba(153,153,153,0.82);
+
+   
+
+}
+.product:hover{
+    background-color: #e6e6e6;
+}
+
+#commentform {
+    background-color: beige;
+    display: block;
+}
+
+textarea{
+    display: block;
+    width: 100%;
+}
+
+#arvioarea{
+    background-color: aqua;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
