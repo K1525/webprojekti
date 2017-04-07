@@ -1,0 +1,82 @@
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+
+#page {
+    
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#top-bar {
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+#left-nav {
+    position: relative;
+    z-index: 1;
+    margin-top: 90px;
+    margin-right: -15px;
+    width: 300px;
+    /*
+    -webkit-box-shadow: 8px 8px 32px 0px rgba(20,20,20,0.5);
+    -moz-box-shadow: 8px 8px 32px 0px rgba(20,20,20,0.5);
+    box-shadow: 8px 8px 32px 0px rgba(20,20,20,0.5);
+    */
+    div {
+        //background: #00b6db;
+        color: white;
+        border-radius: 4px 0 0 4px;
+    }
+}
+
+#main-management {
+    background: white;
+    -webkit-box-shadow: 10px 10px 45px -1px rgba(51,51,51,0.35);
+-moz-box-shadow: 10px 10px 45px -1px rgba(51,51,51,0.35);
+box-shadow: 10px 10px 45px -1px rgba(51,51,51,0.35);
+    min-height: 92vh;
+    border-radius: 4px;
+    position: relative;
+    z-index: 100;
+    padding: 30px;
+    margin-top: 35px;
+    .h1 {
+        text-align:center;
+        font-size: 400%;
+        margin-bottom: 50px;
+        margin-top: 25px;
+        font-family: 'Varela Round', sans-serif;
+        text-shadow: 3px 3px 4px rgba(150, 150, 150, 0.4);
+    }
+    .h2 {
+        font-family: 'Varela Round', sans-serif;
+    }
+    #title {
+        margin-top: 250px;
+        margin-bottom: 0;
+    }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    height: 200px;
+    width: 100%;
+}
+
+p {
+    font-size: 120%;
+}
+
