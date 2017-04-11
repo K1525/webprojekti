@@ -1,0 +1,22 @@
+input{
+    border-radius: 0px !important;
+}
+
+.minify{
+    width: 50px;
+    height: auto;
+}
+
+.wider{
+    min-width: 350px !important;    
+}
+
+.cartText{
+    text-align: center;
+}
+
+.btn{
+    position: relative;
+    width: 50%;
+    margin-left: 25%;
+}

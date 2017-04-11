@@ -1,0 +1,36 @@
+if(isset($_REQUEST['submit'])){
+    //Jos ostoskoria ei ole olemassa
+    if(sizeof($_SESSION['cart']) == 0){
+        $newdata = array($_REQUEST['productName'], $_REQUEST['amount'], $_REQUEST['price'],
+                     "<a href='subtractItem.php?id={$_SESSION['id']}'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></a>  <a href='addItem.php?id={$_SESSION['id']}'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>  <a href='delete.php?id={$_SESSION['id']}'>Poista</a>");
+        array_push($_SESSION['cart'], $newdata);
+        $_SESSION['id']++;
+        header("Location:ostoskori.php");        
+    }
+    //Jos on
+    else{
+        //Tutkitaan onko kyseinen esine jo korissa jos on lisätään sen määrää yhdellä
+        for($c = 0; $c < sizeof($_SESSION['cart']); $c++){
+            if($_REQUEST['productName'] == $_SESSION['cart'][$c][0]){
+                $_SESSION['cart'][$c][1] = $_SESSION['cart'][$c][1] + 1;
+            }
+            else{            
+                $newdata = array($_REQUEST['productName'], $_REQUEST['amount'], $_REQUEST['price'],
+                         "<a href='subtractItem.php?id={$_SESSION['id']}'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></a>  <a href='addItem.php?id={$_SESSION['id']}'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>  <a href='delete.php?id={$_SESSION['id']}'>Poista</a>");
+                array_push($_SESSION['cart'], $newdata);
+                $_SESSION['id']++;
+                header("Location:ostoskori.php");
+                break;
+            }
+        }
+    }
+    
+    /*
+    $newdata = array($_REQUEST['productName'], $_REQUEST['amount'], $_REQUEST['price'],
+                     "<a href='subtractItem.php?id={$_SESSION['id']}'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></a>  <a href='addItem.php?id={$_SESSION['id']}'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>  <a href='delete.php?id={$_SESSION['id']}'>Poista</a>");
+    array_push($_SESSION['cart'], $newdata);
+    $_SESSION['id']++;
+    header("Location:ostoskori.php");
+    */
+    
+}
