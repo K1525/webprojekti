@@ -5,7 +5,7 @@ remove_products($db);
 
 function remove_products($db){
     $sql = "DELETE FROM product WHERE ProductId IN (";
-    $sql2 = "DELETE FROM product_image WHERE ProductId IN (";
+    $sql2 = "DELETE FROM product_image WHERE product_ProductId IN (";
     for($i=0;$i<count($_POST['ids']);$i++){
         $sql = $sql.$_POST['ids'][$i].",";
         $sql2 = $sql2.$_POST['ids'][$i].",";
